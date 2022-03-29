@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio 24</title>
+	<script type="text/javascript">
+		//Inicializar tabla
+		var tabla = new Array(12);
+		for(i=0;i<=12;i++)
+			tabla[i]=0;
+
+		function lanzaDado(){
+			var dado1 = Math.ceil(Math.random()*6);
+			var dado2 = Math.ceil(Math.random()*6);
+			document.getElementById('dado1').innerHTML = '<img src="./img/'+dado1+'.png">';
+			document.getElementById('dado2').innerHTML = '<img src="./img/'+dado2+'.png">';
+			var resultado = dado1+dado2;
+			tabla[resultado]++;
+		}
+		
+		function visualizar(){
+			cadena = "<b>Has obtenido los siguiente resultados:</b><br><table border=2 bgcolor='yellow'><tr><td>Resultado</td><td>Nº veces</td></tr>";
+			for (i=2;i<=12;i++){
+				cadena=cadena + "<tr><td>"+i+"</td><td>"+tabla[i]+"</td></tr>";
+			}
+			cadena = cadena + "</table>";
+			document.getElementById('tabla').innerHTML=cadena;
+		}
+	</script>
+</head>
+<body>
+	<div id="dado1"></div>
+	<div id="dado2"></div>
+	<button onclick="lanzaDado()">Lanza el dado!</button>
+	<button onclick="visualizar()">Visualiza resultados</button>
+	<div id="tabla"></div>
+</body>
+</html>

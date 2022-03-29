@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Ejercicio25</title>
+    <style>
+      button.numero{color:green}
+      button.operador{color:red}
+      button{width:40px;font-size:18pt}
+      h1{text-align:center;}
+      input{font-size:14pt;text-align:right} 
+    </style>
+    <script language="javascript">
+        function borrar(){
+            document.getElementById('visor').value = " ";
+        }
+
+        function escribir(tecla){
+            document.getElementById('visor').value = document.getElementById('visor').value+tecla;
+        }
+
+        function resultado(){
+            try{
+            var resultado = eval(document.getElementById('visor').value);
+            document.getElementById('visor').value = resultado;
+            }catch(error){
+                document.getElementById('visor').value = " ";
+                alert("Error");
+                document.getElementById('visor').focus();
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <h1>Calculadora</h1>
+        <form name="miform">
+        <table border='1' align='center'>
+            <tr>
+                <td colspan='4'>
+                    <input type="text" name="visor" id="visor" size="30" onclick="blur()">
+                </td>
+            </tr>
+            <tr align="center">
+                <td>
+                    <button type="button" class="numero" onclick="escribir('9')">9</button>
+                </td>
+                <td>
+                    <button type="button" class="numero" onclick="escribir('8')">8</button>
+                </td>
+                <td>
+                    <button type="button" class="numero" onclick="escribir('7')">7</button>
+                </td>
+                <td>
+                    <button type="button" class="operador" onclick="escribir('/')">/</button>
+                </td>
+           </tr>
+           <tr align="center">
+                <td>
+                    <button type="button" class="numero" onclick="escribir('6')">6</button>
+                </td>
+                <td>
+                    <button type="button" class="numero" onclick="escribir('5')">5</button>
+                </td>
+                <td>
+                    <button type="button" class="numero" onclick="escribir('4')">4</button>
+                </td>
+                <td>
+                    <button type="button" class="operador" onclick="escribir('*')">*</button>
+                </td>
+           </tr>
+           <tr align="center">
+                <td>
+                    <button type="button" class="numero" onclick="escribir('3')">3</button>
+                </td>
+                <td>
+                    <button type="button" class="numero" onclick="escribir('2')">2</button>
+                </td>
+                <td>
+                    <button type="button" class="numero" onclick="escribir('1')">1</button>
+                </td>
+                <td>
+                    <button type="button" class="operador"onclick="escribir('-')">-</button>
+                </td>
+            </tr>
+            <tr align="center">
+                <td>
+                    <button type="button" class="numero" onclick="escribir('0')">0</button>
+                </td>
+                <td>
+                    <button type="button" class="operador" onclick="borrar()">C</button>
+                </td>
+                <td>
+                    <button type="button" class="operador" onclick="resultado()">=</button>
+                </td>
+                <td>
+                    <button type="button" class="operador" onclick="escribir('+')">+</button>
+                </td>
+            </tr>
+        </table>
+        </form>
+    </div>
+</body>
+</html>
